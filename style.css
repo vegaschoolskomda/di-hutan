@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2em;
+    color: #359381;
+    pointer-events: none;
+    margin-right: 150px;
+}
+
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 6px 15px;
+    font-weight: 600;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #fff;
+    background: #359381;
+    border-radius: 30px;
+}
+
+.beranda {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.beranda::before,
+.beranda::after {
+    content: '';
+    position: absolute;
+    left: -15%;
+    width: 130%;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(26px);
+    z-index: 4;
+}
+
+.beranda::before {
+    bottom: 8%;
+    height: 28%;
+    background:
+        radial-gradient(ellipse at 18% 50%, rgba(232, 247, 241, .48) 0 12%, transparent 42%),
+        radial-gradient(ellipse at 58% 45%, rgba(220, 241, 234, .38) 0 14%, transparent 45%),
+        radial-gradient(ellipse at 88% 55%, rgba(240, 250, 246, .42) 0 11%, transparent 40%);
+    opacity: .8;
+    animation: fog-drift 24s ease-in-out infinite alternate;
+}
+
+.beranda::after {
+    bottom: 30%;
+    height: 22%;
+    background:
+        radial-gradient(ellipse at 8% 50%, rgba(245, 252, 249, .3) 0 12%, transparent 38%),
+        radial-gradient(ellipse at 48% 48%, rgba(229, 246, 239, .32) 0 15%, transparent 43%),
+        radial-gradient(ellipse at 92% 52%, rgba(236, 249, 244, .28) 0 13%, transparent 40%);
+    opacity: .55;
+    animation: fog-drift-reverse 32s ease-in-out infinite alternate;
+}
+
+.beranda img {
+    z-index: 2;
+}
+
+#text {
+    z-index: 5;
+}
+
+@keyframes fog-drift {
+    from {
+        transform: translate3d(-4%, 4px, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(5%, -8px, 0) scale(1.08);
+    }
+}
+
+@keyframes fog-drift-reverse {
+    from {
+        transform: translate3d(5%, 0, 0) scale(1.08);
+    }
+
+    to {
+        transform: translate3d(-5%, 8px, 0) scale(1);
+    }
+}
+
+#text {
+    position: absolute;
+    font-size: 5em;
+    color: #fffdfd;
+    text-shadow: 0 0 20px #359381, 0 0 40px #359381, 0 0 60px #359381, 0 0 80px #359381;
+}
+
+.beranda img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.scrolling {
+    position: relative;
+    margin-top: -7vh;
+    background-color: #003329;
+    padding: 100px;
+}
+
+.scrolling h2 {
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.scrolling p {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .beranda::before,
+    .beranda::after {
+        animation: none;
+    }
+}
